@@ -15,7 +15,6 @@ class DetailViewController: UIViewController {
     var positionOfSelectedImage: Int = 0
     var numberOfImages: Int = 0
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Picture \(positionOfSelectedImage) of \(numberOfImages)"

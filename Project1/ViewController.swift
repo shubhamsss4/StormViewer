@@ -15,6 +15,8 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(recommendTapped))
+        
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -57,6 +59,14 @@ class ViewController: UITableViewController {
             vc.numberOfImages = pictures.count
             navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    @objc func recommendTapped() {
+        guard let url = URL(string: "https://www.apple.com") else { return }
+        let items: [Any] = ["Please Recommend",url]
+        let vc = UIActivityViewController(activityItems: items, applicationActivities: [])
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc,animated: true)
     }
     
 }
